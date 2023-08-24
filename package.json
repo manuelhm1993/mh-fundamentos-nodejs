@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/manuelhm1993/mh-fundamentos-nodejs/issues"
   },
-  "homepage": "https://github.com/manuelhm1993/mh-fundamentos-nodejs#readme"
+  "homepage": "https://github.com/manuelhm1993/mh-fundamentos-nodejs#readme",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
 }

@@ -1,5 +1,5 @@
 // Importar a través de destructory
-const { frutas, dinero } = require('./modulos/frutas');
+const { frutas, dinero } = require('./src/frutas');
 
 frutas.forEach((fruta) => {
   console.log(fruta);

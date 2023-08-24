@@ -37,3 +37,13 @@ Crear un proyecto con NPM:
     2.10. Licencia: sugiere ISC, se puede colocar MIT o cualquier otra
     2.11. Leer el objeto JSON y aceptar
 Es posible saltarse todos esos pasos usando el comando: npm init -y y creará el package.json con datos por default.
+3. Para instalar las dependencias de nodejs y crear la carpeta node_modules se usa el comando: npm install
+4. Para instalar un paquete se usa el comando: npm install <nombre del paquete>
+5. Se pueden instalar los paquetes de 3 formas diferentes:
+    5.1. Instalación como dependencia (requerido por el proyecto para funcionar):         npm install <nombre del paquete>
+    5.2. Instalación para desarrollo (usado para el desarrollo, se ignora en producción): npm install --dev <nombre del paquete>
+    5.1. Instalación global (se instala en el ordenador):                                 npm install -g <nombre del paquete>
+6. Para eliminar o desinstalar un paquete existen dos formas:
+    6.1. Comando: npm uninstall <nombre del paquete>
+    6.2. Eliminar manualmente el paquete del archivo package.json y actualizar node_modules. Eliminar la carpeta y reinstalarla
+    usando: npm install
