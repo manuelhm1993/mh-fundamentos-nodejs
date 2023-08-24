@@ -1,11 +1,17 @@
 // Crear un servidor con express
 // 1. Importar express
 const express = require('express');
+const path = require('path'); // Módulo para trabajar con rutas de archivos y directorios
 
 // 2. Crear un objeto express
 const app = express();
 
-// 3. Realizar las configuraciones de petición y respuesta
+// Middleware para servir archivos estáticos, básicamente la carpeta public a la que accede el usuario
+// __dirname devuelve la ruta absoluta del directorio padre
+// Si se combina con el objeto path y se une con la carpeta public, siempre se encontrarán los assets en local o en producción
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 3. Realizar las configuraciones de petición y respuesta (rutas)
 app.get('/', (req, res) => {
     res.send('Mi primer servidor con express');
 });
