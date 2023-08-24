@@ -1,0 +1,11 @@
+Recursos:
+1. Página oficial:        https://nodejs.org/es
+2. Glosario de versiones: https://nodejs.org/download/release/
+3. Documentación oficial: https://nodejs.org/docs/latest-v18.x/api/documentation.html#about-this-documentation
+4. Documentación API:     https://nodejs.dev/en/api/v18/documentation/
+
+Primeros pasos:
+1. Instalar nodejs
+2. Crear un directorio para el proyecto
+3. Nodejs básicamente es Javascript del lado del servidor, así que se crea un app.js para trabajar
+4. Se siguen las mismas instrucciones que Javascript vanilla, pero para ejecutar la app se hace con la consola: node app.js
