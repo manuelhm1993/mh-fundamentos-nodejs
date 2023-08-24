@@ -10,6 +10,8 @@ Extensiones VSC:
     * imp: crea la estructura de import ES6
     * req: crea la estructura require CommonJS
     * mde: crea la estructura module.exports = {} CommonJS
+    * nfn: crea la estructura de una constante igualda a una función de flecha
+    * anfn: crea la estructura de una función anónima
 2. Node extension pack: es un bundle con todo lo necesario para trabajar con nodejs
 
 Primeros pasos:
@@ -47,3 +49,23 @@ Es posible saltarse todos esos pasos usando el comando: npm init -y y creará el
     6.1. Comando: npm uninstall <nombre del paquete>
     6.2. Eliminar manualmente el paquete del archivo package.json y actualizar node_modules. Eliminar la carpeta y reinstalarla
     usando: npm install
+7. Guía introductoria: https://nodejs.dev/en/learn/introduction-to-nodejs/
+
+Crear un servidor:
+1. Importar el módulo http con o sin predijo node: const http = require('node:http');
+2. Crear el servidor: const server = http.createServer();
+3. Poner el servidor a la escucha: server.listen();
+4. Cada método tiene su configuración respectiva: https://nodejs.dev/en/learn/introduction-to-nodejs/
+5. Ejecutar la aplicación con: node app.js y ver la url: http://127.0.0.1:3000/
+6. El servidor permanece a la escucha, pero hay que reiniciarlo cada vez que se realiza un cambio
+    6.1. Apagar el servidor: ctrl + c
+    6.2. Ejecutar la app:    node app.js
+    6.3. Ver la url:         http://127.0.0.1:3000/
+7. Para optimizar esto se usa un paquete llamado nodemon. https://github.com/remy/nodemon: 
+    7.1. Como dependencia:              npm i nodemon
+    7.2. Como dependencia de desarrolo: npm install --save-dev nodemon
+    7.3. Instalación global:            npm install -g nodemon
+    7.4. Luego reemplazar el comando node por el comando nodemon: nodemon app.js
+    7.5. Si no se hizo una instalación global, se debe configurar el package.json
+        7.5.1. Configurar los scripts: "scripts": {"start": "node app.js", "dev": "nodemon app.js"}
+        7.5.2. Luego de configurar los scripts se puede ejecutar: npm run dev y levantará nodemon
