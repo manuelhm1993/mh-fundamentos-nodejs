@@ -17,3 +17,23 @@ Primeros pasos:
 2. Crear un directorio para el proyecto
 3. Nodejs básicamente es Javascript del lado del servidor, así que se crea un app.js para trabajar
 4. Se siguen las mismas instrucciones que Javascript vanilla, pero para ejecutar la app se hace con la consola: node app.js
+5. A diferencia de Javascript vanilla export e import ES6 en Nodejs se usa module.exports y require CommonJS
+6. NPM y package.json. Son el Node Package Manager o manejador de paquetes para dotar nuestro proyecto de funciones ya creadas
+y el package.json sirve para llevar el control de versiones y dependencias del proyecto, también sirve para la distribución, de
+ese modo no se necesita pasar la carpeta node_modules y al usar npm install node sabrá que dependencias instalar.
+
+Crear un proyecto con NPM:
+1. Crear un directorio donde se almacenará
+2. Crear el package.json
+    2.1. Iniciar el proyecto: npm init
+    2.2. Darle nombre al proyecto (dará como sugerencia el directorio raíz), convención slug mi-app
+    2.3. Darle la versión al proyecto (dará como sugerencia 1.0.0), para el correcto versionado se usa 0.1.0
+    2.4. Descripción del proyecto, el propósito del proyecto
+    2.5. Punto de entrada, es decir, el primer archivo donde inicia el proyecto (index.js o app.js) por convención
+    2.6. Comandos de test, son comandos para pruebas unitarias, se puede ignorar en principio y crearlos posteriormente
+    2.7. Repositorio git, se puede agregar en este punto, pero si ya se había iniciado un repositorio, lo sugerirá por default
+    2.8. Palabras clave: es cuestión de SEO
+    2.9. Autor: nombre del autor
+    2.10. Licencia: sugiere ISC, se puede colocar MIT o cualquier otra
+    2.11. Leer el objeto JSON y aceptar
+Es posible saltarse todos esos pasos usando el comando: npm init -y y creará el package.json con datos por default.
