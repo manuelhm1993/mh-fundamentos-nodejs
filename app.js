@@ -22,7 +22,9 @@ app.use(express.static(getRutaAbsoluta('public')));
 
 // Rutas
 app.get('/', (req, res) => {
-    res.send('Mi primer servidor con express');
+    // Como se está usando un motor de plantillas, ahora se deben renderizar las vistas usar el método render
+    // Render recibe el nombre de la plantilla y un objeto con parámetros (opcional)
+    res.render('index', { title: 'Título dinámico', message: 'Primer renderizado'});
 });
 
 app.get('/servicios', (req, res) => {
@@ -31,7 +33,7 @@ app.get('/servicios', (req, res) => {
 
 // Middleware para gestionar errores 404
 app.use((req, res, next) => {
-    res.status(404).sendFile(getRutaAbsoluta('public/404.html'));
+    res.status(404).render(getRutaAbsoluta('views/404', 'src'));
 });
 
 // Oyentes
