@@ -1,13 +1,8 @@
-/* const frutas = ['Plátano', 'Manzana', 'Plátano', 'Pera'];
-const dinero = 1000; */
+const frutas = ['Plátano', 'Manzana', 'Plátano', 'Pera'];
+const dinero = 1000;
 
-// Usar el objeto module con la propiedad exports (equivalente a export default funcion;)
-// module.exports = frutas;
-
-// De esta manera se exportan varios elementos, similar al export nombrado de ES6
-// Se puede crear un objeto literal con las definiciones de sus propiedades, puede ser cualquier elemento javascript
+// Si los elementos a exportar ya están definidos, se puede omitir la clave y nodejs le dará el mismo nombre de variable
 module.exports = {
-    frutas: ['Plátano', 'Manzana', 'Plátano', 'Pera'],
-    dinero: dinero = 1000,
+    frutas, 
+    dinero,
 };
-
