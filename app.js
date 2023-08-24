@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
     res.send('Mi primer servidor con express');
 });
 
+// Esto es similar a la configuración de las rutas en laravel
+app.get('/servicios', (req, res) => {
+    res.send('Estás en la página de servicios');
+});
+
 // 4. Crear los parámetros de configuración el host y el puerto
 const hostname = 'localhost';
 const port = 3000;
