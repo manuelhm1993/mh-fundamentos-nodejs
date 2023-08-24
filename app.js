@@ -28,12 +28,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/servicios', (req, res) => {
-    res.send('Estás en la página de servicios');
+    // El método render ya sabe la unicación del directorio views y no es necesario usar el método getRusaAbsoluta
+    res.render('servicios', { title: 'Esta es la página de servicios MHenriquez' });
 });
 
 // Middleware para gestionar errores 404
 app.use((req, res, next) => {
-    res.status(404).render(getRutaAbsoluta('views/404', 'src'));
+    res.status(404).render('404', { message: 'Error. Página no encontrada' });
 });
 
 // Oyentes
