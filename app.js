@@ -11,6 +11,9 @@ const app = express();
 const hostname = 'localhost';
 const port = 3000;
 
+// Establecer el directorio de vistas
+app.set('views', getRutaAbsoluta('views', 'src'));
+
 // Establecer el motor de plantillas
 app.set('view engine', 'ejs');
 
