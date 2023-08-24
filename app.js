@@ -1,18 +1,20 @@
-// Módulo http: pertenece al core de nodejs y no require instalación, se puede usar el prefijo node: require(node:http);
-const http = require('http');
+// Crear un servidor con express
+// 1. Importar express
+const express = require('express');
 
-// Crear el servidor con el objeto http
-const server = http.createServer((req, res) => {
-  res.statusCode = 200; // Status http de respuesta exitosa
-  res.setHeader('Content-Type', 'text/plain'); // tipo de contenido a devolver, en este caso texto plano
-  res.end('Hola mundo, este es mi primer servidor nodejs v3'); // Configurar la respuesta para el usuario, en este caso un string
+// 2. Crear un objeto express
+const app = express();
+
+// 3. Realizar las configuraciones de petición y respuesta
+app.get('/', (req, res) => {
+    res.send('Mi primer servidor con express');
 });
 
-// Crear los parámetros de configuración el host y el puerto
-const hostname = '127.0.0.1';
+// 4. Crear los parámetros de configuración el host y el puerto
+const hostname = 'localhost';
 const port = 3000;
 
-// Poner el servidor a la escucha en el puerto y el host configurados previamente
-server.listen(port, hostname, () => {
-  console.log(`Servidor ejecutándose en: http://${hostname}:${port}/`);
+// 5. Poner el servidor a la escucha (el método listen de express es igual al de node)
+app.listen(port, hostname, () => {
+    console.log(`Servidor ejecutándose en: http://${hostname}:${port}/`);
 });
