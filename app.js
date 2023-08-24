@@ -5,7 +5,7 @@ const http = require('http');
 const server = http.createServer((req, res) => {
   res.statusCode = 200; // Status http de respuesta exitosa
   res.setHeader('Content-Type', 'text/plain'); // tipo de contenido a devolver, en este caso texto plano
-  res.end('Hola mundo, este es mi primer servidor nodejs!'); // Configurar la respuesta para el usuario, en este caso un string
+  res.end('Hola mundo, este es mi primer servidor nodejs v3'); // Configurar la respuesta para el usuario, en este caso un string
 });
 
 // Crear los parámetros de configuración el host y el puerto
