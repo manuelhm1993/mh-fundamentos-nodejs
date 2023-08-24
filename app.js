@@ -1,5 +1,8 @@
-const frutas = ['Plátano', 'Manzana', 'Plátano', 'Pera'];
+// Importar a través de destructory
+const { frutas, dinero } = require('./modulos/frutas');
 
 frutas.forEach((fruta) => {
-    console.count(fruta);
-});
+  console.log(fruta);
+})
+
+console.log(dinero);

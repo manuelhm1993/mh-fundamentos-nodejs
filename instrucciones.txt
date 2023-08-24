@@ -4,6 +4,14 @@ Recursos:
 3. Documentación oficial: https://nodejs.org/docs/latest-v18.x/api/documentation.html#about-this-documentation
 4. Documentación API:     https://nodejs.dev/en/api/v18/documentation/
 
+Extensiones VSC:
+1. Javascript (ES6) code snippets: acelera el desarrollo a través de atajos para crear código de uso indispensable como:
+    * fre: crea la estructura de foreach
+    * imp: crea la estructura de import ES6
+    * req: crea la estructura require CommonJS
+    * mde: crea la estructura module.exports = {} CommonJS
+2. Node extension pack: es un bundle con todo lo necesario para trabajar con nodejs
+
 Primeros pasos:
 1. Instalar nodejs
 2. Crear un directorio para el proyecto
