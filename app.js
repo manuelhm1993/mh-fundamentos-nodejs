@@ -1,14 +1,18 @@
 // Importar módulos
+//
+// Módulos externos
 const express = require('express');
-const path = require('path'); 
+
+// Módulos propios
+const { getRutaAbsoluta } = require('./src/mh-functions/funciones-globales');
 
 // Variables globales
 const app = express();
 const hostname = 'localhost';
 const port = 3000;
 
-// Funciones propias
-const getRutaAbsoluta = (ruta) => path.join(__dirname, ruta);
+// Establecer el motor de plantillas
+app.set('view engine', 'ejs');
 
 // Middlewares
 app.use(express.static(getRutaAbsoluta('public')));
