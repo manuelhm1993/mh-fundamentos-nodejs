@@ -69,3 +69,6 @@ Crear un servidor:
     7.5. Si no se hizo una instalación global, se debe configurar el package.json
         7.5.1. Configurar los scripts: "scripts": {"start": "node app.js", "dev": "nodemon app.js"}
         7.5.2. Luego de configurar los scripts se puede ejecutar: npm run dev y levantará nodemon
+8. Instalar express: npm i express
+    8.1. Express es un paquete que permite hacer aplicaciones dinámicas y crear un servidor fácilmente
+    8.2. Realizar la instalación como dependencia principal
