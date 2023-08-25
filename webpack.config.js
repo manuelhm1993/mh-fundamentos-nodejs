@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: {
     // Archivos de entrada para ser compilados
-    bootstrap: './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+    bootstrap: './src/resources/js/app.js',
   },
   output: {
     // Ruta de archivo compilado
