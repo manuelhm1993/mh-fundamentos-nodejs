@@ -22,6 +22,8 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
         // Expresión regular para indicar el tipo de archivos donde se usarán
         test: /\.(css|sass|scss)$/,
+        // Excluir la carpeta node_modules
+        exclude: /node_modules/,
       },
       {
         // Resolución de imagenes
