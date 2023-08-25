@@ -72,3 +72,14 @@ Crear un servidor:
 8. Instalar express: npm i express
     8.1. Express es un paquete que permite hacer aplicaciones dinámicas y crear un servidor fácilmente
     8.2. Realizar la instalación como dependencia principal
+9. Crear middlewares y rutas
+
+Utilizar un motor de plantillas:
+1. Express tiene muchos motores de plantillas: https://expressjs.com/en/resources/template-engines.html
+2. Se utilizó en este proyecto EJS que es similar a laravel blade: https://ejs.co/
+3. Guía para el uso de motores de plantilla con express: https://expressjs.com/en/guide/using-template-engines.html
+4. En el servidor se debe establecer el motor de plantillas: app.set('view engine', 'ejs');
+5. Para llamar a los assets se puede hacer de diversas formas:
+    5.1. Usar los CDN en los template
+    5.2. Instalarlos de forma manual
+    5.3. Usar npm y compilarlos con webpack y sass respectivamente

@@ -1,40 +1,43 @@
-// Crear un servidor con express
-// 1. Importar express
+// Importar módulos
+//
+// Módulos externos
 const express = require('express');
-const path = require('path'); // Módulo para trabajar con rutas de archivos y directorios
 
-// 2. Crear un objeto express
+// Módulos propios
+const { getRutaAbsoluta } = require('./src/mh-functions/funciones-globales');
+
+// Variables globales
 const app = express();
+const hostname = 'localhost';
+const port = 3000;
 
-// Función propia para devolver la ruta absoluta
-const getRutaAbsoluta = (ruta) => path.join(__dirname, ruta);
+// Establecer el directorio de vistas
+app.set('views', getRutaAbsoluta('views', 'src'));
 
-// Middleware para servir archivos estáticos, básicamente la carpeta public a la que accede el usuario
-// __dirname devuelve la ruta absoluta del directorio padre
-// Si se combina con el objeto path y se une con la carpeta public, siempre se encontrarán los assets en local o en producción
-// Los middleware siempre se ejecutan antes que las solicitudes
+// Establecer el motor de plantillas
+app.set('view engine', 'ejs');
+
+// Middlewares
 app.use(express.static(getRutaAbsoluta('public')));
 
-// 3. Realizar las configuraciones de petición y respuesta (rutas)
+// Rutas
 app.get('/', (req, res) => {
-    res.send('Mi primer servidor con express');
+    // Como se está usando un motor de plantillas, ahora se deben renderizar las vistas usar el método render
+    // Render recibe el nombre de la plantilla y un objeto con parámetros (opcional)
+    res.render('index', { message: 'Primer renderizado'});
 });
 
-// Esto es similar a la configuración de las rutas en laravel
 app.get('/servicios', (req, res) => {
-    res.send('Estás en la página de servicios');
+    // El método render ya sabe la unicación del directorio views y no es necesario usar el método getRusaAbsoluta
+    res.render('servicios', { message: 'Esta es la página de servicios MHenriquez' });
 });
 
 // Middleware para gestionar errores 404
 app.use((req, res, next) => {
-    res.status(404).sendFile(getRutaAbsoluta('public/404.html'));
+    res.status(404).render('404', { message: 'Error. Página no encontrada' });
 });
 
-// 4. Crear los parámetros de configuración el host y el puerto
-const hostname = 'localhost';
-const port = 3000;
-
-// 5. Poner el servidor a la escucha (el método listen de express es igual al de node)
+// Oyentes
 app.listen(port, hostname, () => {
     console.log(`Servidor ejecutándose en: http://${hostname}:${port}/`);
 });
