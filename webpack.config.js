@@ -3,16 +3,13 @@ const path = require('path');
 
 module.exports = {
   // Entrada
-  entry: {
-    // Archivos de entrada para ser compilados
-    bootstrap: './src/resources/js/app.js',
-  },
+  entry: './src/resources/js/app.js', // Archivos de entrada para ser compilados
   // Salida
   output: {
-    // Ruta de archivo compilado
-    path: path.resolve(__dirname, 'public/js'),
     // Nombre del archivo compilado
     filename: 'app.js',
+    // Ruta de archivo compilado
+    path: path.resolve(__dirname, 'public/js'),
   },
   // Cargadores
   module: {
