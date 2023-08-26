@@ -6,9 +6,10 @@ const mongoose = require('mongoose');
 
 // Variables de conexión
 const user = 'mhenriquez';
-const pass = 'Mayra11.';
+const password = 'Mayra11.';
 const host = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
-const uri = `mongodb+srv://${user}:${pass}@${host}`;
+const db = 'mh-veterinaria';
+const uri = `mongodb+srv://${user}:${password}@${host}/${db}`;
 
 // Conexión a la BBDD
 const mascotas = async (uri) => {
