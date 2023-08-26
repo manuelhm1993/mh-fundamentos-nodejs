@@ -1,6 +1,44 @@
 <!-- Agregar la ruta relativa a los includes correspondientes -->
 <%- include('./../template/header.ejs', { title: 'Mascotas' }) -%>
     <div class="container">
-        Mascotas
+        <table class="table my-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% if (arrayMascotas.length > 0) { %>
+                <% arrayMascotas.forEach(mascota => { %>
+                <tr>
+                    <th scope="row"><%= mascota.id %></th>
+                    <td><%= mascota.nombre %></td>
+                    <td><%= mascota.descripcion %></td>
+                    <td>
+                        <button class="btn btn-success">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                        <button class="btn btn-warning">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+
+                        <button class="btn btn-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No hay mascotas disponibles 😭</td>
+                </tr>
+            <% }  %>
+            </tbody>
+        </table>
     </div>
 <%- include('./../template/footer.ejs') -%>
+ 
