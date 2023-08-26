@@ -86,3 +86,14 @@ Utilizar un motor de plantillas:
     5.1. Usar los CDN en los template
     5.2. Instalarlos de forma manual
     5.3. Usar npm y compilarlos con webpack y sass respectivamente
+
+Hacer deploy:
+1. Seleccionar el hosting: https://dashboard.render.com/
+2. Completar el registro
+3. Crear un nuevo static site o web service (si tiene backend)
+4. Vincular el repositorio de Github
+5. Completar las configuraciones
+6. Preparar el entorno para producción (el proyecto)
+    6.1. Cargar el puerto dinámicamente: process.env.PORT || 3000
+    6.2. No usar localhost para el host
+    6.3. Cargar los path desde el app.js o el server express
