@@ -1,15 +1,23 @@
 const express = require('express');
 
 const router = express.Router();
+const Mascota = require('../models/Mascota');
 
-router.get('/', (req, res) => {
-    // Para renderizar una subcarpeta se parte desde el nombre sin '/'
-    res.render('mascotas/index', {
-        arrayMascotas: [
-            { id: 'ms-1', nombre: 'Teddy', descripcion: 'Perro de la calle' },
-            { id: 'ms-2', nombre: 'Luis', descripcion: 'Mi nuevo estudiante de programación' },
-        ]
-    });
+// Como se van a usar promesas en las querys del modelo se debe usar async
+router.get('/', async (req, res) => {
+    try {
+        const mascotas = await Mascota.find({});
+
+        console.log(mascotas);
+
+        // Para renderizar una subcarpeta se parte desde el nombre sin '/'
+        res.render('mascotas/index', {
+            mascotas: mascotas
+        });
+    } 
+    catch (err) {
+        console.log(err);
+    }
 });
 
 module.exports = router;
