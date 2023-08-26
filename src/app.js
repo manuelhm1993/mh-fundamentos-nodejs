@@ -1,6 +1,29 @@
 // Módulos externos e internos
 const express = require('express');
 
+// ORM de mongoDB
+const mongoose = require('mongoose');
+
+// Variables de conexión
+const user = 'mhenriquez';
+const pass = 'Mayra11.';
+const host = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
+const uri = `mongodb+srv://${user}:${pass}@${host}`;
+
+// Conexión a la BBDD
+const mascotas = async (uri) => {
+    try {
+        await mongoose.connect(uri);
+
+        console.log('Conexión establecida');
+    } 
+    catch (err) {
+        console.log(err);
+    }
+}
+
+mascotas(uri);
+
 // Módulos propios
 const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
 
