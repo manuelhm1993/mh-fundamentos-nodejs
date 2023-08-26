@@ -1,24 +1,25 @@
 // Importar módulos
 //
 // Módulos externos e internos
-const path = require('path'); 
 const express = require('express');
+const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
 
 // Variables globales
 const app = express();
 const port = process.env.PORT || 3000;
+const currentDir = __dirname;
 
 // Establecer el directorio de vistas
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', getRutaAbsoluta(currentDir, 'views', true));
 
 // Establecer el motor de plantillas
 app.set('view engine', 'ejs');
 
-console.log(path.join(__dirname.slice(0, -3), 'public'))
-console.log(path.join(__dirname, 'views'))
+console.log(getRutaAbsoluta(currentDir, 'public', false));
+console.log(getRutaAbsoluta(currentDir, 'views', true));
 
 // Middlewares registrar la carpeta pública || Eliminar src de la ruta
-app.use(express.static(path.join(__dirname.slice(0, -3), 'public')));
+app.use(express.static(getRutaAbsoluta(currentDir, 'public', false)));
 
 // Importar las rutas ya tratadas con el Middleware web
 app.use('/', require('./router/RutasWeb'));
