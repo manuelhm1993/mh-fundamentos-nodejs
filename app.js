@@ -21,7 +21,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(getRutaAbsoluta('public')));
 
 // Importar las rutas ya tratadas con el Middleware web
-app.use('/', require('./src/router/RutasWeb.js'));
+app.use('/', require('./src/router/RutasWeb'));
+
+// Equivalente a crear grupos, prefijos y nombres en las rutas
+app.use('/mascotas', require('./src/router/Mascotas'));
 
 // Middleware para gestionar errores 404
 app.use((req, res, next) => {
