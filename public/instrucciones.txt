@@ -110,4 +110,4 @@ Conexiones a BBDD:
     7.2. ORM:             https://www.npmjs.com/package/mongoose
 8. Crear el módulo de conexión en el proyecto
 9. Copiar la uri de conexión dada por la nube: 
-    9.1: const uri = 'mongodb+srv://mhenriquez:<password>@mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
+    9.1: const uri = 'mongodb+srv://<user>:<password>@mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority/<dbname>';

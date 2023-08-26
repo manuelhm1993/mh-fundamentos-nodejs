@@ -5,11 +5,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // Variables de conexión
+const host = 'mongodb+srv';
 const user = 'mhenriquez';
 const password = 'Mayra11.';
-const host = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
+const driver = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
 const db = 'mh-veterinaria';
-const uri = `mongodb+srv://${user}:${password}@${host}/${db}`;
+
+// URL de conexión
+const uri = `${host}://${user}:${password}@${driver}/${db}`;
 
 // Conexión a la BBDD
 const mascotas = async (uri) => {
