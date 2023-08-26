@@ -9,10 +9,9 @@ const host = 'mongodb+srv';
 const user = 'mhenriquez';
 const password = 'Mayra11.';
 const driver = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
-const db = 'mh-veterinaria';
 
 // URL de conexión
-const uri = `${host}://${user}:${password}@${driver}/${db}`;
+const uri = `${host}://${user}:${password}@${driver}`;
 
 // Módulos propios
 const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
