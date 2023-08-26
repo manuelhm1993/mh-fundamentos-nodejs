@@ -1,0 +1,34 @@
+<!-- Navbar: en bootstrap 5 los colores están ligados al data-bs-theme para modo oscuro o light y usar el bg correspondiente -->
+<nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+    <!-- Contenedor principal -->
+    <div class="container-fluid">
+        <!-- Título de la página -->
+        <a class="navbar-brand" href="/">MHenriquez</a>
+        <!-- Botón responsive -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú responsive, se colapsa dentro del botón hamburguesa -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Menú de navegación -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sin-definir">Sin definir</a>
+                </li>
+            </ul>
+
+            <!-- Formulario de login -->
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
