@@ -50,6 +50,9 @@ Es posible saltarse todos esos pasos usando el comando: npm init -y y creará el
     6.2. Eliminar manualmente el paquete del archivo package.json y actualizar node_modules. Eliminar la carpeta y reinstalarla
     usando: npm install
 7. Guía introductoria: https://nodejs.dev/en/learn/introduction-to-nodejs/
+8. Ignorar la carpeta node_modules: 
+    8.1. tocuh .gitignore
+    8.2. echo /node_modules >> .gitignore
 
 Crear un servidor:
 1. Importar el módulo http con o sin predijo node: const http = require('node:http');
