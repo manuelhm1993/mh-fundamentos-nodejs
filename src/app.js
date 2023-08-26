@@ -14,20 +14,6 @@ const db = 'mh-veterinaria';
 // URL de conexión
 const uri = `${host}://${user}:${password}@${driver}/${db}`;
 
-// Conexión a la BBDD
-const mascotas = async (uri) => {
-    try {
-        await mongoose.connect(uri);
-
-        console.log('Conexión establecida');
-    } 
-    catch (err) {
-        console.log(err);
-    }
-}
-
-mascotas(uri);
-
 // Módulos propios
 const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
 
@@ -56,7 +42,20 @@ app.use((req, res, next) => {
     res.status(404).render('404', { message: 'Error. Página no encontrada' });
 });
 
-// Oyentes
-app.listen(port, () => {
-    console.log(`Servidor ejecutándose en el puerto: ${port}`);
-});
+// Realizar la conexión a la BBDD y luego poner a la escucha al servidor
+(async () => {
+    // Conexión a la BBDD
+    try {
+        await mongoose.connect(uri);
+
+        console.log('Conexión establecida');
+    } 
+    catch (err) {
+        console.log(err);
+    }
+
+    // Oyentes
+    app.listen(port, () => {
+        console.log(`Servidor ejecutándose en el puerto: ${port}`);
+    });
+})();

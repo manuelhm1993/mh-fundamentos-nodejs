@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         res.render('mascotas/index', {
             mascotas: mascotas
         });
-    } 
+    }
     catch (err) {
         console.log(err);
     }
