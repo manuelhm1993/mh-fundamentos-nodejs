@@ -9,7 +9,10 @@ const { getRutaAbsoluta } = require('./src/mh-functions/funciones-globales');
 // Variables globales
 const app = express();
 const hostname = 'localhost';
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+console.log(process.env.PORT);
+console.log(port);
 
 // Establecer el directorio de vistas
 app.set('views', getRutaAbsoluta('views', 'src'));
