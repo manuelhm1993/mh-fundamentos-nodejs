@@ -8,7 +8,7 @@ const { getRutaAbsoluta } = require('./src/mh-functions/funciones-globales');
 
 // Variables globales
 const app = express();
-const hostname = 'localhost';
+// const hostname = 'localhost';
 const port = process.env.PORT || 3000;
 
 console.log(process.env.PORT);
@@ -35,6 +35,8 @@ app.use((req, res, next) => {
 });
 
 // Oyentes
-app.listen(port, hostname, () => {
-    console.log(`Servidor ejecutándose en: http://${hostname}:${port}/`);
+// app.listen(port, hostname, () => {
+app.listen(port, () => {
+    // console.log(`Servidor ejecutándose en: http://${hostname}:${port}/`);
+    console.log(`Servidor ejecutándose en el puerto: ${port}`);
 });
