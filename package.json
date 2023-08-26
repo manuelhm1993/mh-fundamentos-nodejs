@@ -2,10 +2,10 @@
   "name": "mh-fundamentos-nodejs",
   "version": "1.0.0",
   "description": "Proyecto nodejs para aprender el uso de esta tecnología desde descargar nodejs hasta hacer el deploy en un host",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
-    "start": "node app.js",
-    "nodemon": "nodemon app.js",
+    "start": "node ./src/app.js",
+    "nodemon": "nodemon ./src/app.js",
     "sass": "sass ./src/resources/sass/app.scss ./public/css/app.css",
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
