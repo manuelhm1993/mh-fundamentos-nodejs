@@ -8,11 +8,6 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-console.log(process.env.PORT);
-console.log(port);
-console.log(path.join(__dirname, 'public'));
-console.log(path.join(__dirname, 'src/views'));
-
 // Establecer el directorio de vistas
 app.set('views', path.join(__dirname, 'src/views'));
 
