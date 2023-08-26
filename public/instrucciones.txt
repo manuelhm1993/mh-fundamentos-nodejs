@@ -97,3 +97,15 @@ Hacer deploy:
     6.1. Cargar el puerto dinámicamente: process.env.PORT || 3000
     6.2. No usar localhost para el host
     6.3. Cargar los path desde el app.js o el server express
+
+Conexiones a BBDD:
+1. Seleccionar la BD: https://cloud.mongodb.com/
+2. Registrarse de forma gratuita
+3. Seleccionar el plan gratuito
+4. Crear una organización
+5. Crear un proyecto
+6. Hacer un deploy (cluster)
+7. Instalar el driver de conexión en el proyecto:
+    7.1. Conexión nativa: https://www.npmjs.com/package/mongodb
+    7.2. ORM:             https://www.npmjs.com/package/mongoose
+8. Crear el módulo de conexión en el proyecto
