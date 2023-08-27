@@ -27,8 +27,18 @@ router.get('/create', (req, res) => {
 router.post('/', async (req, res) => {
     const body = req.body;
 
-    res.send(body);
-    // res.render('mascotas/index');
+    if(!body) return;
+
+    try {
+        // Crear una nueva mascota con el modelo correspondiente
+        const mascota = await Mascota.create(body);   
+
+        // Redireccionar al index
+        res.redirect('/mascotas');
+    } 
+    catch (err) {
+        console.log(err);
+    }
 });
 
 module.exports = router;
