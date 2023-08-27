@@ -11,10 +11,10 @@
                 </tr>
             </thead>
             <tbody>
-            <% if (arrayMascotas.length > 0) { %>
-                <% arrayMascotas.forEach(mascota => { %>
+            <% if (mascotas.length > 0) { %>
+                <% mascotas.forEach(mascota => { %>
                 <tr>
-                    <th scope="row"><%= mascota.id %></th>
+                    <th scope="row"><%= mascota._id %></th>
                     <td><%= mascota.nombre %></td>
                     <td><%= mascota.descripcion %></td>
                     <td>

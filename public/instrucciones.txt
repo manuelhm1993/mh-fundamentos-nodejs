@@ -97,3 +97,28 @@ Hacer deploy:
     6.1. Cargar el puerto dinámicamente: process.env.PORT || 3000
     6.2. No usar localhost para el host
     6.3. Cargar los path desde el app.js o el server express
+
+Conexiones a BBDD:
+1. Seleccionar la BD: https://cloud.mongodb.com/
+2. Registrarse de forma gratuita
+3. Seleccionar el plan gratuito
+4. Crear una organización
+5. Crear un proyecto
+6. Hacer un deploy (cluster)
+7. Instalar el driver de conexión en el proyecto:
+    7.1. Conexión nativa: https://www.npmjs.com/package/mongodb
+    7.2. ORM:             https://www.npmjs.com/package/mongoose
+8. Crear el módulo de conexión en el proyecto
+9. Copiar la uri de conexión dada por la nube: 
+    9.1: const uri = 'mongodb+srv://<user>:<password>@mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority/<dbname>/<bd>';
+10. Se crea una BBDD test, conectarse a ella y luego a la propia
+11. Al ser la conexión una promesa, por precaución colocar tanto la escucha del servidor como la conexión dentro de una función
+para que se ejecuten de manera síncrona
+
+Creación de variables de entorno .env:
+1. Las credenciales de conexión son información sensible y debe estar oculta, para eso existe el paquete dotenv
+2. Instalar el paquete: npm i dotenv
+3. Crear dos archivos de variables de entorno 
+    3.1. .env que contendrá la información y será ignorada por .gitignore
+    3.2. .env.example que contendrá los nombres de las variables con información de guía y se puede publicar en Github
+4. Crear las variables de entorno en el hosting para el proyecto en producción en las configuraciones
