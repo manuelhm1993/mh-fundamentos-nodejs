@@ -114,3 +114,11 @@ Conexiones a BBDD:
 10. Se crea una BBDD test, conectarse a ella y luego a la propia
 11. Al ser la conexión una promesa, por precaución colocar tanto la escucha del servidor como la conexión dentro de una función
 para que se ejecuten de manera síncrona
+
+Creación de variables de entorno .env:
+1. Las credenciales de conexión son información sensible y debe estar oculta, para eso existe el paquete dotenv
+2. Instalar el paquete: npm i dotenv
+3. Crear dos archivos de variables de entorno 
+    3.1. .env que contendrá la información y será ignorada por .gitignore
+    3.2. .env.example que contendrá los nombres de las variables con información de guía y se puede publicar en Github
+4. Crear las variables de entorno en el hosting para el proyecto en producción en las configuraciones
