@@ -24,17 +24,15 @@
                     <td><%= mascota.nombre %></td>
                     <td><%= mascota.descripcion %></td>
                     <td>
-                        <button class="btn btn-sm btn-success" title="Mostrar" aria-label="Mostrar">
+                        <a 
+                        class="btn btn-sm btn-success" 
+                        href="/mascotas/<%= mascota._id %>" 
+                        role="button" 
+                        title="Mostrar" 
+                        aria-label="Mostrar"
+                        >
                             <i class="fa-solid fa-eye"></i>
-                        </button>
-
-                        <button class="btn btn-sm btn-warning" title="Actualizar" aria-label="Actualizar">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-
-                        <button class="btn btn-sm btn-danger" title="Eliminar" aria-label="Eliminar">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 <% }) %>

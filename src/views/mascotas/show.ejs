@@ -1,0 +1,42 @@
+<!-- Agregar la ruta relativa a los includes correspondientes -->
+<%- include('./../template/header.ejs', { title: 'Mascotas - Show' }) -%>
+    <div class="container">
+        <h1>Detalles de la mascota</h1>
+
+        <% if (error) { %>
+            <p><%= message %></p>
+
+            <a href="/mascotas" class="btn btn-dark" role="button">Volver a mascotas</a>
+        <% } else { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><%= mascota._id %></th>
+                        <td><%= mascota.nombre %></td>
+                        <td><%= mascota.descripcion %></td>
+                        <td>
+                            <a 
+                            class="btn btn-sm btn-success" 
+                            href="/mascotas/<%= mascota._id %>" 
+                            role="button" 
+                            title="Mostrar" 
+                            aria-label="Mostrar"
+                            >
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+<%- include('./../template/footer.ejs') -%>
+ 
