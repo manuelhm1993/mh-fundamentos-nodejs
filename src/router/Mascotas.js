@@ -18,4 +18,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Create
+router.get('/create', (req, res) => {
+    res.render('mascotas/create');
+});
+
+// Store
+router.post('/', async (req, res) => {
+    const body = req.body;
+
+    res.send(body);
+    // res.render('mascotas/index');
+});
+
 module.exports = router;
