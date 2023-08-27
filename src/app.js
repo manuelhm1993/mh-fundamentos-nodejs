@@ -4,14 +4,8 @@ const express = require('express');
 // ORM de mongoDB
 const mongoose = require('mongoose');
 
-// Variables de conexión
-const host = 'mongodb+srv';
-const user = 'mhenriquez';
-const password = 'Mayra11.';
-const driver = 'mhcluster.vscmpom.mongodb.net/?retryWrites=true&w=majority';
-
-// URL de conexión
-const uri = `${host}://${user}:${password}@${driver}`;
+// Equivalente al helper env() de laravel
+require('dotenv').config();
 
 // Módulos propios
 const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
@@ -20,6 +14,9 @@ const { getRutaAbsoluta } = require('./mh-functions/funciones-globales');
 const app = express();
 const port = process.env.PORT || 3000;
 const currentDir = __dirname;
+
+// URL de conexión BBDD
+const uri = `${process.env.DB_CONNECTION}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
 
 // Establecer el directorio de vistas
 app.set('views', getRutaAbsoluta(currentDir, 'views', true));
