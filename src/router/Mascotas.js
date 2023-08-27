@@ -8,8 +8,6 @@ router.get('/', async (req, res) => {
     try {
         const mascotas = await Mascota.find({});
 
-        console.log(mascotas);
-
         // Para renderizar una subcarpeta se parte desde el nombre sin '/'
         res.render('mascotas/index', {
             mascotas: mascotas
