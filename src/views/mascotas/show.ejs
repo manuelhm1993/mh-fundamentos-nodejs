@@ -3,10 +3,14 @@
     <div class="container">
         <h1>Detalles de la mascota</h1>
 
+        <div class="d-grid gap-2 d-md-block my-4">
+            <a class="btn btn-dark" href="/mascotas" role="button">
+                <i class="fa-solid fa-arrow-left"></i> Volver
+            </a>
+        </div>
+
         <% if (error) { %>
             <p><%= message %></p>
-
-            <a href="/mascotas" class="btn btn-dark" role="button">Volver a mascotas</a>
         <% } else { %>
             <table class="table">
                 <thead>
@@ -24,13 +28,13 @@
                         <td><%= mascota.descripcion %></td>
                         <td>
                             <a 
-                            class="btn btn-sm btn-success" 
+                            class="btn btn-sm btn-warning" 
                             href="/mascotas/<%= mascota._id %>" 
                             role="button" 
-                            title="Mostrar" 
-                            aria-label="Mostrar"
+                            title="Editar" 
+                            aria-label="Editar"
                             >
-                                <i class="fa-solid fa-eye"></i>
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                         </td>
                     </tr>
