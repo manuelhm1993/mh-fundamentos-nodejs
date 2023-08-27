@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         const mascota = await Mascota.create(body);   
 
         // Redireccionar al index
-        res.redirect('/mascotas');
+        res.redirect('mascotas');
     } 
     catch (err) {
         console.log(err);
@@ -81,6 +81,25 @@ router.get('/:_id/edit', async (req, res) => {
         res.render('mascotas/edit', { 
             error: true,
             message: "No se encontró el id seleccionado 😭",
+        });
+    }
+});
+
+// Delete
+router.delete('/:_id', async (req, res) => {
+    const _id = req.params._id;
+
+    try {
+        await Mascota.deleteOne({ _id: _id  });
+
+        res.redirect('mascotas');
+    } 
+    catch (err) {
+        console.log(err);
+
+        res.render('mascotas/delete', { 
+            error: true,
+            message: `No se pudo eliminar la mascota con el id: ${_id} 😭`,
         });
     }
 });

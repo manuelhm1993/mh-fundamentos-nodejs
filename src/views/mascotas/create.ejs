@@ -9,21 +9,21 @@
         </a>
     </div>
 
-    <form action="/mascotas" method="post">
-        <div class="mb-2">
-            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
-        </div>
-
-        <div class="mb-2">
-            <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required>
-        </div>
-
-        <div class="d-grid gap-2 d-xl-block mb-2">
-            <button class="btn btn-primary" type="submit" role="button">
-                <i class="fa-solid fa-plus"></i> Agregar
-            </button>
-        </div>
-    </form>
+    <section>
+        <form action="/mascotas" method="post">
+            <div class="mb-2">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required>
+            </div>
+            <div class="d-grid gap-2 d-xl-block mb-2">
+                <button class="btn btn-primary" type="submit" role="button">
+                    <i class="fa-solid fa-plus"></i> Agregar
+                </button>
+            </div>
+        </form>
+    </section>
 </div>
 
 <%- include('./../template/footer.ejs') -%>
