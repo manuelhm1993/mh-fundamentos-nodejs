@@ -63,4 +63,26 @@ router.get('/:_id', async (req, res) => {
     }
 });
 
+// Edit
+router.get('/:_id/edit', async (req, res) => {
+    const _id = req.params._id;
+
+    try {
+        const mascota = await Mascota.findOne({ _id: _id });
+
+        res.render('mascotas/edit', { 
+            mascota: mascota,
+            error: false,
+        });
+    } 
+    catch (err) {
+        console.log(err);
+
+        res.render('mascotas/edit', { 
+            error: true,
+            message: "No se encontró el id seleccionado 😭",
+        });
+    }
+});
+
 module.exports = router;

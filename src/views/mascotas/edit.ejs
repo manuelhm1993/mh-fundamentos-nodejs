@@ -1,0 +1,56 @@
+<%- include('./../template/header.ejs', { title: 'Mascotas - Edit' }) -%>
+
+<div class="container">
+    <h1>Editar mascota</h1>
+
+    <div class="d-grid gap-2 d-md-block my-4">
+        <a class="btn btn-dark" href="/mascotas/<%= mascota._id %>" role="button">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <form action="" method="get" id="update-form">
+        <div class="mb-2">
+            <input 
+            type="text" 
+            class="form-control" 
+            name="nombre" 
+            placeholder="Nombre" 
+            value="<%= mascota.nombre %>"
+            required>
+        </div>
+
+        <div class="mb-2">
+            <input 
+            type="text" 
+            class="form-control" 
+            name="descripcion" 
+            placeholder="Descripción" 
+            value="<%= mascota.descripcion %>"
+            required>
+        </div>
+
+        <input type="hidden" name="_id" value="<%= mascota._id %>">
+    </form>
+
+    <div class="d-flex justify-content-start">
+        <button 
+        class="btn btn-sm btn-warning me-2" 
+        title="Actualizar" 
+        aria-label="Actualizar" 
+        type="submit"
+        form="update-form">
+            <i class="fa-solid fa-user-pen"></i> Actualizar
+        </button>
+
+        <form action="" method="get">
+            <input type="hidden" name="_id" value="<%= mascota._id %>">
+
+            <button class="btn btn-sm btn-danger" title="Eliminar" aria-label="Eliminar" type="submit">
+                <i class="fa-solid fa-trash"></i> Eliminar
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('./../template/footer.ejs') -%>
