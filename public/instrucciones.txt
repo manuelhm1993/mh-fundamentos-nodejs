@@ -122,3 +122,4 @@ Creación de variables de entorno .env:
     3.1. .env que contendrá la información y será ignorada por .gitignore
     3.2. .env.example que contendrá los nombres de las variables con información de guía y se puede publicar en Github
 4. Crear las variables de entorno en el hosting para el proyecto en producción en las configuraciones
+5. Configurar la IP del hosting para dar acceso
