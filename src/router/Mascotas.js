@@ -46,7 +46,6 @@ router.get('/:_id', async (req, res) => {
     const _id = req.params._id;
 
     try {
-        // const mascota = await Mascota.find().where({ _id: _id });
         const mascota = await Mascota.findOne({ _id: _id });
 
         res.render('mascotas/show', { 
@@ -59,7 +58,7 @@ router.get('/:_id', async (req, res) => {
 
         res.render('mascotas/show', { 
             error: true,
-            message: "No se encontró el id seleccionado",
+            message: "No se encontró el id seleccionado 😭",
         });
     }
 });
