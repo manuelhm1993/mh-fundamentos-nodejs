@@ -90,17 +90,24 @@ router.delete('/:_id', async (req, res) => {
     const _id = req.params._id;
 
     try {
-        await Mascota.deleteOne({ _id: _id  });
+        const mascota = await Mascota.findByIdAndDelete({ _id: _id });
 
-        res.redirect('mascotas');
-    } 
+        // Comprobar desde acá, porque el redirect falla y usar json con fetch
+        if(mascota) {
+            res.json({ 
+                estado: true,
+                message: "Mascota eliminada exitosamente",
+            });
+        }
+        else {
+            res.json({ 
+                estado: false,
+                message: "No se pudo eliminar la mascota 😭",
+            });
+        }
+    }
     catch (err) {
         console.log(err);
-
-        res.render('mascotas/delete', { 
-            error: true,
-            message: `No se pudo eliminar la mascota con el id: ${_id} 😭`,
-        });
     }
 });
 
