@@ -13,7 +13,9 @@
         <p><%= message %></p>
     <% } else { %>
         <section class="">
-            <form action="" method="get" id="update-form">
+            <!-- El formulario solo acepta métodos get y post, en laravel todo se maneja por post y se envía un campo oculto, 
+                en nodejs se usa fetchAPI -->
+            <form id="update-form">
                 <div class="mb-2">
                     <input
                     type="text"
@@ -53,8 +55,48 @@
 <%- include('./../template/footer.ejs') -%>
 
 <script>
+    // Variables
     const btnEliminar = document.querySelector('#btnEliminar');
+    const updateForm = document.querySelector('#update-form');
 
+    // Evento al hacer submit
+    updateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const fuenteEvento = e.target;
+        const [_id, nombre, descripcion] = [...fuenteEvento];
+
+        try {
+            const res = await fetch(`/mascotas/${_id.value}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json' // Headers para trabajar con JSON
+                },
+                body: JSON.stringify({
+                    nombre: nombre.value,
+                    descripcion: descripcion.value
+                }), // Forma de enviar datos a través de JSON
+            });
+
+            const data = await res.json();
+
+            console.log(data.body.nombre)
+            console.log(data.body.descripcion)
+
+            /* if(data.estado) {
+                // window.location.href = `/mascotas/${mascotaData.get('_id')}/edit`;
+                console.log('Exito')
+            }
+            else {
+                console.log('malditos todos')
+            } */
+        }
+        catch (err) {
+            console.log(err);
+        }
+    });
+
+    // Evento al hacer click
     btnEliminar.addEventListener('click', async (e) => {
         const id = e.target.dataset.idMascota;
 
