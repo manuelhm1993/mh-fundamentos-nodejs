@@ -1,5 +1,6 @@
 // Módulos externos e internos
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // ORM de mongoDB
 const mongoose = require('mongoose');
@@ -17,6 +18,12 @@ const currentDir = __dirname;
 
 // URL de conexión BBDD
 const uri = `${process.env.DB_CONNECTION}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
+
+// Manipular verbos HTTP de formulario: parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Uso de GET para FETCHAPI: parse application/json
+app.use(bodyParser.json());
 
 // Establecer el directorio de vistas
 app.set('views', getRutaAbsoluta(currentDir, 'views', true));

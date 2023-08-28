@@ -1,0 +1,124 @@
+<%- include('./../template/header.ejs', { title: 'Mascotas - Edit' }) -%>
+
+<div class="container">
+    <h1>Editar mascota</h1>
+
+    <div class="d-grid gap-2 d-md-block my-4">
+        <a class="btn btn-dark" href="/mascotas/<%= mascota._id %>" role="button">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <% if (error) { %>
+        <p><%= message %></p>
+    <% } else { %>
+        <section class="">
+            <!-- El formulario solo acepta métodos get y post, en laravel todo se maneja por post y se envía un campo oculto, 
+                en nodejs se usa fetchAPI -->
+            <form id="update-form">
+                <div class="mb-2">
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="nombre"
+                    placeholder="Nombre"
+                    value="<%= mascota.nombre %>"
+                    required>
+                </div>
+
+                <div class="mb-2">
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="descripcion"
+                    placeholder="Descripción"
+                    value="<%= mascota.descripcion %>"
+                    required>
+                </div>
+
+                <input type="hidden" name="_id" value="<%= mascota._id %>">
+            </form>
+
+            <div class="d-flex justify-content-start">
+                <button class="btn btn-sm btn-warning me-2" type="submit" form="update-form">
+                    <i class="fa-solid fa-user-pen"></i> Actualizar
+                </button>
+
+                <button class="btn btn-sm btn-danger" id="btnEliminar" data-id-mascota="<%= mascota._id %>">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                </button>
+            </div>
+        </section>
+    <% } %>
+</div>
+
+<%- include('./../template/footer.ejs') -%>
+
+<script>
+    // Variables
+    const btnEliminar = document.querySelector('#btnEliminar');
+    const updateForm = document.querySelector('#update-form');
+
+    // Evento al hacer submit
+    updateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const fuenteEvento = e.target;
+
+        // Destructory del formulario, los elementos se asignan en el orden en el que están en el formulario
+        const [nombre, descripcion, _id] = [...fuenteEvento];
+
+        try {
+            const res = await fetch(`/mascotas/${_id.value}`, {
+                method: 'put',
+                // Headers para trabajar con JSON (obligatorio en este caso)
+                headers: {
+                    'Content-Type': 'application/json' 
+                },
+                // Forma de enviar datos a través de JSON
+                body: JSON.stringify({
+                    nombre: nombre.value,
+                    descripcion: descripcion.value
+                }), 
+            });
+
+            const data = await res.json();
+
+            // Volver al index
+            if(data.estado) {
+                window.location.href = `/mascotas`;
+            }
+            else {
+                console.log('Error al actualizar');
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    });
+
+    // Evento al hacer click
+    btnEliminar.addEventListener('click', async (e) => {
+        const id = e.target.dataset.idMascota;
+
+        try {
+            // Del lado del cliente si se debe colocar el '/' delante de la ruta
+            const res = await fetch(`/mascotas/${id}`, {
+                method: 'delete' // Especificando el verbo HTTP para fetch
+            });
+
+            const data = await res.json();
+
+            // Procesar la respuesta
+            if(data.estado) {
+                window.location.href = '/mascotas';
+            }
+            else {
+                console.log(data.message);
+            }
+        } 
+        catch (err) {
+            console.log(err);
+        }
+    });
+</script>
