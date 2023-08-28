@@ -86,20 +86,11 @@ router.get('/:_id/edit', async (req, res) => {
 });
 
 // Update
-router.put('/:_id', (req, res) => {
+router.put('/:_id', async (req, res) => {
     const _id = req.params._id;
     const data = req.body;
 
-    console.log(_id);
-    console.log(data);
-    console.log(data.nombre);
-    console.log(data.descripcion);
-
-    res.json({
-        body: data
-    });
-
-    /* try {
+    try {
         // Busca por ID y actualiza los campos, similar al $request->fill de laravel
         const mascota = await Mascota.findByIdAndUpdate(_id, data);
 
@@ -116,7 +107,7 @@ router.put('/:_id', (req, res) => {
             estado: false,
             message: "No se pudo actualizar la mascota 😭",
         });
-    } */
+    }
 });
 
 // Delete

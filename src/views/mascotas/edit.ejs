@@ -64,32 +64,33 @@
         e.preventDefault();
 
         const fuenteEvento = e.target;
-        const [_id, nombre, descripcion] = [...fuenteEvento];
+
+        // Destructory del formulario, los elementos se asignan en el orden en el que están en el formulario
+        const [nombre, descripcion, _id] = [...fuenteEvento];
 
         try {
             const res = await fetch(`/mascotas/${_id.value}`, {
                 method: 'put',
+                // Headers para trabajar con JSON (obligatorio en este caso)
                 headers: {
-                    'Content-Type': 'application/json' // Headers para trabajar con JSON
+                    'Content-Type': 'application/json' 
                 },
+                // Forma de enviar datos a través de JSON
                 body: JSON.stringify({
                     nombre: nombre.value,
                     descripcion: descripcion.value
-                }), // Forma de enviar datos a través de JSON
+                }), 
             });
 
             const data = await res.json();
 
-            console.log(data.body.nombre)
-            console.log(data.body.descripcion)
-
-            /* if(data.estado) {
-                // window.location.href = `/mascotas/${mascotaData.get('_id')}/edit`;
-                console.log('Exito')
+            // Volver al index
+            if(data.estado) {
+                window.location.href = `/mascotas`;
             }
             else {
-                console.log('malditos todos')
-            } */
+                console.log('Error al actualizar');
+            }
         }
         catch (err) {
             console.log(err);
